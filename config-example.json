@@ -1,0 +1,19 @@
+{
+    "token": "tbd",
+    "prefix": "m!",
+    "jared": "user id",
+    "mikal": "user id",
+    "opts": {
+        "mentionEveryone": false,
+        "fetchAllMembers": true,
+        "sync": true
+    },
+    "arynServer": {
+        "server": "server id",
+        "channel": "channel id"
+    },
+    "jaredServer": {
+        "server": "server id",
+        "channel": "channel id"
+    }
+}
