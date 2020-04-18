@@ -46,6 +46,8 @@ exports.run = async (bot, msg) => {
 			//send
 			targetChannel1.send(mediaURL);
 			targetChannel2.send(mediaURL);
+		} else {
+			msg.reply("no attachment!")
 		}
 	}
 }
