@@ -32,7 +32,20 @@ exports.run = async (bot, msg) => {
 	//meme reposts
 	if (msg.channel.id == "--") {
 		if (msg.attachments) {
-			//repost
+			//pull media link
+			var mediaURL = messageAttachment.proxyURL;
+
+			//get target servers
+			var targetServer1 = bot.config.arynServer.server;
+			var targetServer2 = bot.config.jaredServer.server;
+
+			//get target channels
+			var targetChannel1 = targetServer1.channels.cache.get(bot.config.arynServer.channel);
+			var targetChannel2 = targetServer2.channels.cache.get(bot.config.jaredServer.channel);
+
+			//send
+			targetChannel1.send(mediaURL);
+			targetChannel2.send(mediaURL);
 		}
 	}
 }
