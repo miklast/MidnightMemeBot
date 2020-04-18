@@ -32,20 +32,14 @@ exports.run = async (bot, msg) => {
 	//meme reposts
 	if (msg.channel.id == "--") {
 		if (msg.attachments) {
-			//pull media link
-			var mediaURL = messageAttachment.proxyURL;
+			let meme = message.attachments.first(),
+    		mediaURL = meme.url;
 
-			//get target servers
-			var targetServer1 = bot.config.arynServer.server;
-			var targetServer2 = bot.config.jaredServer.server;
+  			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel),
+    			targetChannel2 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
 
-			//get target channels
-			var targetChannel1 = targetServer1.channels.cache.get(bot.config.arynServer.channel);
-			var targetChannel2 = targetServer2.channels.cache.get(bot.config.jaredServer.channel);
-
-			//send
-			targetChannel1.send(mediaURL);
-			targetChannel2.send(mediaURL);
+  			await targetChannel1.send({ files: [mediaURL] });
+  			await targetChannel2.send({ files: [mediaURL] });
 		} else {
 			msg.reply("no attachment!")
 		}
