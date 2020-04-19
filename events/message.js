@@ -32,7 +32,7 @@ exports.run = async (bot, msg) => {
 	//meme reposts
 	if (msg.channel.id == "700999076631805972") {
 		if (msg.attachments) {
-			let meme = message.attachments.first();
+			let meme = msg.attachments.first();
 			let mediaURL = meme.url;
 
   			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
