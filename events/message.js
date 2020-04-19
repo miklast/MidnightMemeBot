@@ -34,12 +34,12 @@ exports.run = async (bot, msg) => {
 		if (msg.attachments) {
 			let meme = msg.attachments.first();
 			let mediaURL = meme.url;
-
-  			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
-    		let targetChannel2 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
-
-  			await targetChannel1.send({ files: [mediaURL] });
-  			await targetChannel2.send({ files: [mediaURL] });
+			
+			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
+			let targetChannel2 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
+			
+			await targetChannel1.send({ files: [mediaURL] });
+			await targetChannel2.send({ files: [mediaURL] });
 		} else {
 			msg.reply("no attachment!")
 		}
