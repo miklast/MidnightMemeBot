@@ -32,7 +32,7 @@ readdir('./events/', (err, files) => {
 
 var restart;
 bot.on('ready', () => {
-	restart = bot.channels.cache.get('--'); // Channel to send notification
+	restart = bot.channels.cache.get('701002021007917141'); // Channel to send notification
 });
 
 const TARGET_HOUR_R = 4;
