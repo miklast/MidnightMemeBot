@@ -32,11 +32,11 @@ exports.run = async (bot, msg) => {
 	//meme reposts
 	if (msg.channel.id == "700999076631805972") {
 		if (msg.attachments) {
-			let meme = message.attachments.first(),
-    		mediaURL = meme.url;
+			let meme = message.attachments.first();
+			let mediaURL = meme.url;
 
-  			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel),
-    			targetChannel2 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
+  			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
+    		let targetChannel2 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
 
   			await targetChannel1.send({ files: [mediaURL] });
   			await targetChannel2.send({ files: [mediaURL] });
