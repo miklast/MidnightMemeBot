@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'ping',
+	name: 'clear',
 	permission: 1,
 	main: function (bot, msg) {
         bot.memeCache.clear();
