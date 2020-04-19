@@ -35,9 +35,9 @@ exports.run = async (bot, msg) => {
 			let meme = msg.attachments.first();
 			let mediaURL = meme.url;
 
-  			let targetChannel1 = bot.guilds.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
-			let targetChannel2 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
-			let targetChannel3 = bot.guilds.get(bot.config.jaredServer.server).channels.cache.get(bot.config.mikalServer.channel);
+  			let targetChannel1 = bot.guilds.fetch(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
+			let targetChannel2 = bot.guilds.fetch(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
+			let targetChannel3 = bot.guilds.fetch(bot.config.jaredServer.server).channels.cache.get(bot.config.mikalServer.channel);
 
   			await targetChannel1.send({ files: [mediaURL] });
   			await targetChannel2.send({ files: [mediaURL] });
