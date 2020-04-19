@@ -30,11 +30,13 @@ exports.run = async (bot, msg) => {
 	}
 
 	//meme reposts
-	if (msg.channel.id == "701312804707106846") {
+	if (msg.channel.id == "700999076631805972") {
 		if (msg.attachments) {
 			let meme = msg.attachments.first();
 			let mediaURL = meme.url;
+			bot.memeCache.add(mediaURL);
 
+			/**
   			let targetChannel1 = bot.guilds.cache.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
 			let targetChannel2 = bot.guilds.cache.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
 			let targetChannel3 = bot.guilds.cache.get(bot.config.mikalServer.server).channels.cache.get(bot.config.mikalServer.channel);
@@ -42,8 +44,11 @@ exports.run = async (bot, msg) => {
   			await targetChannel1.send({ files: [mediaURL] });
   			await targetChannel2.send({ files: [mediaURL] });
 			await targetChannel3.send({ files: [mediaURL] });
+			*/
+		} else if (!msg.attachments) {
+			msg.reply("no attachment!");
 		} else {
-			msg.reply("no attachment!")
+			msg.reply("uh oh, something went wrong!");
 		}
 	}
 }
