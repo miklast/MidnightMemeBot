@@ -15,5 +15,9 @@
     "jaredServer": {
         "server": "server id",
         "channel": "channel id"
+    },
+    "mikalServer": {
+        "server": "server id",
+        "channel": "channel id"
     }
 }
