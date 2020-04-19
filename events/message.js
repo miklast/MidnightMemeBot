@@ -37,7 +37,7 @@ exports.run = async (bot, msg) => {
 
   			let targetChannel1 = bot.guilds.cache.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
 			let targetChannel2 = bot.guilds.cache.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
-			let targetChannel3 = bot.guilds.cache.get(bot.config.jaredServer.server).channels.cache.get(bot.config.mikalServer.channel);
+			let targetChannel3 = bot.guilds.cache.get(bot.config.mikalServer.server).channels.cache.get(bot.config.mikalServer.channel);
 
   			await targetChannel1.send({ files: [mediaURL] });
   			await targetChannel2.send({ files: [mediaURL] });
