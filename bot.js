@@ -43,15 +43,18 @@ bot.on('ready', () => {
 const TARGET_HOUR_M = 0;
 const TARGET_MINUTE_M = 0;
 
+function post(memeInput) {
+	await targetChannel1.send({ files: [memeInput] });
+	await targetChannel2.send({ files: [memeInput] });
+	await targetChannel3.send({ files: [memeInput] });
+}
+
 setInterval(function () {
 	var d1 = new Date();
 	if (d1.getMinutes() !== TARGET_MINUTE_M || d1.getHours() !== TARGET_HOUR_M) {
 		return;
 	} else {
-		await targetChannel1.send({ files: [bot.memeCache] });
-		await targetChannel2.send({ files: [bot.memeCache] });
-		await targetChannel3.send({ files: [bot.memeCache] });
-		bot.memeCache.clear(); //clears memes
+		bot.memeCache.forEach(post);
 	}
 	midnightMeme.send("[MIDNIGHT MEME] | Meme(s) successfully distributed!")
 }, 60 * 1000);
