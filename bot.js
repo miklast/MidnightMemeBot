@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const config = require("./config.json");
 const bot = new Discord.Client(require("./config.json").opts);
 require('./funcs.js')(bot);
 const readdir = require("fs").readdir;
@@ -31,9 +32,9 @@ readdir('./events/', (err, files) => {
 });
 
 //midnight meme timer
-let targetChannel1 = bot.guilds.cache.get(bot.config.arynServer.server).channels.cache.get(bot.config.arynServer.channel);
-let targetChannel2 = bot.guilds.cache.get(bot.config.jaredServer.server).channels.cache.get(bot.config.jaredServer.channel);
-let targetChannel3 = bot.guilds.cache.get(bot.config.mikalServer.server).channels.cache.get(bot.config.mikalServer.channel);
+let targetChannel1 = bot.guilds.cache.get(config.arynServer.server).channels.cache.get(config.arynServer.channel);
+let targetChannel2 = bot.guilds.cache.get(config.jaredServer.server).channels.cache.get(config.jaredServer.channel);
+let targetChannel3 = bot.guilds.cache.get(config.mikalServer.server).channels.cache.get(config.mikalServer.channel);
 
 var midnightMeme;
 bot.on('ready', () => {
