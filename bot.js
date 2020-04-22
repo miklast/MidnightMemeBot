@@ -43,7 +43,7 @@ bot.on('ready', () => {
 const TARGET_HOUR_M = 0;
 const TARGET_MINUTE_M = 0;
 
-function post(memeInput) {
+async function post(memeInput) {
 	await targetChannel1.send({ files: [memeInput] });
 	await targetChannel2.send({ files: [memeInput] });
 	await targetChannel3.send({ files: [memeInput] });
