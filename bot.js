@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-const config = require("./config.json");
 const bot = new Discord.Client(require("./config.json").opts);
 require('./funcs.js')(bot);
 const readdir = require("fs").readdir;
 
+bot.config = require("./config.json");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.memeCache = new Set();
