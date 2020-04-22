@@ -51,11 +51,8 @@ function post(memeInput) {
 
 setInterval(function () {
 	var d1 = new Date();
-	if (d1.getMinutes() !== TARGET_MINUTE_M || d1.getHours() !== TARGET_HOUR_M) {
-		return;
-	} else {
-		bot.memeCache.forEach(post);
-	}
+	if (d1.getMinutes() !== TARGET_MINUTE_M || d1.getHours() !== TARGET_HOUR_M) return;
+	bot.memeCache.forEach(post);
 	midnightMeme.send("[MIDNIGHT MEME] | Meme(s) successfully distributed!")
 }, 60 * 1000);
 
