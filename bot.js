@@ -3,7 +3,6 @@ const bot = new Discord.Client(require("./config.json").opts);
 require('./funcs.js')(bot);
 const readdir = require("fs").readdir;
 
-bot.config = new Discord.Client(require("./config.json"));
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.memeCache = new Set();
