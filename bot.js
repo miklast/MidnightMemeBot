@@ -5,7 +5,7 @@ const readdir = require("fs").readdir;
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-bot.blackjackInProgress = new Set();
+bot.memeCache = new Set();
 
 readdir('./modules/', (err, files) => {
 	bot.log(`Loading ${files.length} modules!`);
@@ -30,9 +30,10 @@ readdir('./events/', (err, files) => {
 	bot.log(`Events loaded!`);
 });
 
+//restart timer
 var restart;
 bot.on('ready', () => {
-	restart = bot.channels.cache.get('701002021007917141'); // Channel to send notification
+	restart = bot.channels.cache.get('701002021007917141');
 });
 
 const TARGET_HOUR_R = 4;
@@ -40,11 +41,11 @@ const TARGET_MINUTE_R = 20;
 
 setInterval(function () {
 	var d2 = new Date();
-	if (d2.getMinutes() !== TARGET_MINUTE_R || d2.getHours() !== TARGET_HOUR_R) return; // Return if current minute is not the notify minute
+	if (d2.getMinutes() !== TARGET_MINUTE_R || d2.getHours() !== TARGET_HOUR_R) return;
 	setTimeout(function () {
 		process.exit();
 	}, 1000);
 	restart.send("[AUTO RESTART] | Process successfully restarted!")
-}, 60 * 1000); // Check every minute
+}, 60 * 1000);
 
 bot.login(require("./config.json").token);
